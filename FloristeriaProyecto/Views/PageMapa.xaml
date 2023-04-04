@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="FloristeriaProyecto.Views.PageMapa">
+    <Grid BackgroundColor="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Frame Padding="0,0,0,0" HeightRequest="40" Grid.Row="0" Grid.Column="0">
+            <Grid>
+                <Label Text="SU UBICACION ACTUAL" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="20"
+                       TextColor="#B90068"
+                       FontAttributes="Bold"/>
+            
+            </Grid>
+        </Frame >
+        
+
+        <maps:Map x:Name="mapa" 
+                  Grid.Row="1" 
+                  Grid.Column="0"
+                  IsShowingUser="True"/>
+
+        <ScrollView Grid.Row="2"
+                     Grid.Column="0">
+            <StackLayout  >
+            
+              
+            
+            <Entry x:Name="txtLatitude"
+                   Keyboard="Numeric"
+                   Placeholder="Ejemplo: 15.67"
+                   HorizontalOptions="FillAndExpand" 
+                   Margin="30,0,30,0"
+                   IsEnabled="False"
+                   IsVisible="True"
+                   />
+
+            <Entry x:Name="txtLongitude"
+                    Keyboard="Numeric"
+                    Placeholder="Ejemplo: -81.78"
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="30,0,30,0"
+                    IsEnabled="False"
+                    IsVisible="True"
+                    />
+                
+        </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

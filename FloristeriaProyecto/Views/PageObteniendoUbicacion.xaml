@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloristeriaProyecto.Views.PageObteniendoUbicacion">
+    <ContentPage.Content>
+        
+        
+        
+        <StackLayout>
+            <Frame Padding="0,0,0,0" HeightRequest="40" Grid.Row="0" Grid.Column="0">
+                <Grid>
+                    <Label Text="UBICACION PARA ENTREGA DEL PEDIDO" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="20"
+                       TextColor="#B90068"
+                       FontAttributes="Bold"/>
+
+                </Grid>
+            </Frame >
+
+
+            <ScrollView Grid.Row="2"
+                     Grid.Column="0">
+                <StackLayout  >
+
+                    <Label Text="TU PEDIDO SERA ENTREGADO EN ESTA DIRECCION(DONDE TU TE ENCUENTRAS ACTUALMENTE)" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="20"
+                       TextColor="#B90068"
+                       FontAttributes="Bold"/>
+
+                    <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalOptions="Fill" Spacing="0" Padding="0,0,0,30">
+                        <Label FontAttributes="Bold" TextColor="Black">Nombre persona contacto:</Label>
+                        <Entry x:Name="txtPersonaContacto" TextColor="Black" Placeholder="Ejemplo: Maria"/>
+                    </StackLayout>
+
+                    <Entry x:Name="txtLatitude"
+                   Keyboard="Numeric"
+                   Placeholder="Ejemplo: 15.67"
+                   HorizontalOptions="FillAndExpand" 
+                   Margin="30,0,30,0"
+                   IsEnabled="False"
+                   />
+
+                    <Entry x:Name="txtLongitude"
+                        Keyboard="Numeric"
+                        Placeholder="Ejemplo: -81.78"
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="30,0,30,0"
+                        IsEnabled="False"
+                   />
+
+                    <Button x:Name="btnGuardar"
+                    Text="Continuar"
+                    BackgroundColor="#B90068"
+                    CornerRadius="25"
+                    FontSize="16"
+                    Clicked="btnGuardar_Clicked"
+                    Margin="30,0,30,0" />
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

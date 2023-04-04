@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="FloristeriaProyecto.Views.PageCalificar"
+              BackgroundColor="white">
+    <StackLayout>
+        <Label Text="Califica tu experiencia" Padding="0,350,0,20" FontAttributes="Bold" TextColor="#D4AF37" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+
+        <fRating:RatingBar SelectedStarValue="0"
+                           x:Name="rating" 
+                           HorizontalOptions="Center" 
+                           ImageWidth="50" 
+                           ImageHeight="50" 
+                           FlowDirection="LeftToRight" 
+                           FillStarImage="EstrellaRellena"
+                           EmptyStarImage="EstrellaBlanca" 
+                           >
+
+        </fRating:RatingBar>
+        <Label></Label>
+
+        <Button 
+                HorizontalOptions="CenterAndExpand"
+                Text="Enviar" 
+                BackgroundColor="#B90068"
+                x:Name="btnenviar"
+                Clicked="btnenviar_Clicked"
+                CornerRadius="30"
+                IsEnabled="True"/>
+    </StackLayout>
+</ContentPage>

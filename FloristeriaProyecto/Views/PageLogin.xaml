@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:FloristeriaProyecto"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             
+             BackgroundColor="#FFCBE9"
+             x:Class="FloristeriaProyecto.Views.PageLogin">
+
+
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Margin="0,30" Source="flori.png" Aspect="AspectFit" HeightRequest="110" WidthRequest="80"></Image>
+            <Frame Grid.Row="1" Margin="0,-30,0,-0.1" BorderColor="#B90068" HasShadow="True"  CornerRadius="40" HeightRequest="600">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,50,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                       
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0"  Text="BIENVENIDO DELIVERY" FontSize="24" FontAttributes="Bold" TextColor="#B90068" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Iniciar Sesión" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+
+
+                        
+                        <custom:CustomEntry  
+                             Grid.Row="2"
+                             x:Name="txtEmail"
+                             CornerRadius="18"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#B90068"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="17"  
+                             HeightRequest="40"  
+                             Placeholder="Ingresa Correo"  
+                             PlaceholderColor="#E2DCDC"  
+                             TextColor="#B90068"  
+                             FontAttributes="None"  
+                             WidthRequest="100"/>
+                       
+
+                    <custom:CustomEntry  
+                             Grid.Row="3"
+                             x:Name="txtContrasena"
+                             CornerRadius="18"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#B90068"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="17"  
+                             HeightRequest="40"  
+                             Placeholder="Ingresa Contraseña"  
+                             PlaceholderColor="#E2DCDC"  
+                                IsPassword="True"
+                             TextColor="#B90068"  
+                             FontAttributes="None"  
+                             WidthRequest="100"/>
+
+
+                    <StackLayout Grid.Row="5">
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="checkBox" CheckedChanged="checkBox_CheckedChanged"/>
+                            <Label Text="Recordar Contraseña" TextColor="#B90068"/>
+                        </StackLayout>
+                        
+
+                    </StackLayout>
+                    
+
+
+
+
+                    <Button Grid.Row="6" x:Name="btnIniciarSesion" Text="Ingresar" BackgroundColor="#B90068" TextColor="#F5F5F5" Clicked="BtnIniciarSesion_Clicked"  CornerRadius="20"></Button>
+                    <Button Grid.Row="7"  x:Name="btnRegistrarse" Text="Registrarse" BackgroundColor="#B90068" TextColor="#F5F5F5" Clicked="BtnRegistrarse_Clicked" CornerRadius="20"></Button>
+
+
+                    <Label  Grid.Row="8" Margin="0,-10,0,0" Text="¿Olvidaste Tu Contraseña?" 
+                                       FontAttributes="Bold"
+                            TextColor="#B90068"
+                                       HorizontalOptions="CenterAndExpand">
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="ForgotTap"
+                                              Tapped="ForgotTap_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Grid.Row="9"  Text="copyright © Grupo2" FontSize="15" FontAttributes="Bold" TextColor="#E2DCDC" HorizontalOptions="CenterAndExpand"></Label>
+
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+    

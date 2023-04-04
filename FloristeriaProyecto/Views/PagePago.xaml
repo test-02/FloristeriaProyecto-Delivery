@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloristeriaProyecto.Views.PagePago"
+             Title="Métodos de Pago">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="5">
+                <Frame BackgroundColor="#B90068">
+                    <StackLayout>
+                        <Label TextColor="AliceBlue" Text="Digitar Tarjeta" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold,Italic"/>
+                        <Image Source="pago1.png" HeightRequest="100" WidthRequest="200"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="5,0,5,0" BackgroundColor="White">
+                    <StackLayout BackgroundColor="White" >
+                        <Frame BackgroundColor="White" CornerRadius="10" Margin="10,0,10,0">
+                            <StackLayout>
+                                <Label Text="Nombre completo" TextColor="Black"/>
+                                <Entry/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame CornerRadius="10" Margin="10,0,10,0" BackgroundColor="White">
+                            <StackLayout>
+                                <Label TextColor="Black" Text="Número de Tarjeta"/>
+                                <Entry x:Name="txtNumeroTarjeta" Keyboard="Numeric" MaxLength="16"/>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame CornerRadius="10" Margin="10,0,0,0" BackgroundColor="White">
+                                <StackLayout>
+                                    <Label TextColor="Black" Text="Fecha de Expiración"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Entry x:Name="txtFechaMessExpiracion" Keyboard="Numeric" MaxLength="2" Placeholder="MM" Margin="0"/>
+                                        <Label Text="/" Margin="0,5,0,0" FontSize="26" TextColor="Black"/>
+                                        <Entry x:Name="txtFechaAñoExpiracion" Keyboard="Numeric" MaxLength="2" Placeholder="YY" Margin="0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <Frame CornerRadius="10" Margin="45,0,0,0" BackgroundColor="White">
+                                <StackLayout>
+                                    <Label TextColor="Black" Text="Código CVV"/>
+                                    <Entry x:Name="txtCodigoCVV" MaxLength="3" Keyboard="Numeric"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <Frame CornerRadius="10" Margin="10,0,10,0" BackgroundColor="White">
+                            <StackLayout>
+                                <Label TextColor="Black" Text="Correo Electronico"/>
+                                <Entry x:Name="txtEmail" Keyboard="Email"/>
+                            </StackLayout>
+                        </Frame>
+                        <Button Grid.Row="6" x:Name="btnConfirmarPago" 
+                Text="Confirmar Pago" 
+                TextColor="White"  
+                BackgroundColor="#B90068"
+                CornerRadius="10"
+                HorizontalOptions="End"
+                TextTransform="None"
+                Margin="0,10,57,0"
+                Clicked="BtnConfirmarPago_Clicked"
+                FontSize="26"/>
+                    </StackLayout>
+                </Frame>
+                <ScrollView>
+                    <StackLayout HorizontalOptions="Start" Margin="10,0,0,0">
+                        <Label Text="Este metodo de pago asegura el metodo electronico de pago de sus productos en linea, ¡Gracias por su preferencia!" TextColor="#B90068"  FontAttributes="Bold,Italic" FontSize="14"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="payPal_logo.png" HeightRequest="50" WidthRequest="100"/>
+                            <Image Source="bitcoin.png" HeightRequest="50" WidthRequest="100"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

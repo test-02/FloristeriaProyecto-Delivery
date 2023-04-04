@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "613941116002",
+    "firebase_url": "https://floristeriamovil2-10357-default-rtdb.firebaseio.com",
+    "project_id": "floristeriamovil2-10357",
+    "storage_bucket": "floristeriamovil2-10357.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613941116002:android:93039189018d0f5d08e53b",
+        "android_client_info": {
+          "package_name": "com.companyname.floristeriaproyectom2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613941116002-qohhk60c0pfggl3ks4e8a0196532n1ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6YhMrHw1E4Z2cqbRqjjGtkzmkUz_iDDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613941116002-qohhk60c0pfggl3ks4e8a0196532n1ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

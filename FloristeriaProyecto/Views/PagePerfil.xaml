@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloristeriaProyecto.Views.PagePerfil"
+             xmlns:Converter="clr-namespace:FloristeriaProyecto.ConvertidorImagen" xmlns:custom="clr-namespace:FloristeriaProyecto"
+             Title="">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Padding="10" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="5">
+                       
+                    </StackLayout>
+
+                    <Label Grid.Row="0"  Text="BIENVENIDO A TU PERFIL" Margin="0,-30,0,0" FontSize="20" FontAttributes="Bold" TextColor="#B90068" HorizontalOptions="CenterAndExpand"></Label>
+                    <Frame Grid.Row="0" Grid.Column="1" HeightRequest="300" WidthRequest="200" Padding="3" Margin="0,20,0,0">
+                        
+                        
+
+
+                        <Image x:Name="Imagen" 
+                       Margin="0" 
+                       BackgroundColor="White" 
+                       WidthRequest="200" 
+                       HeightRequest="200"
+                       />
+                    </Frame>
+                    <Button  x:Name="btnModificarFoto" Text="Tomar Foto" HorizontalOptions="FillAndExpand" Clicked="btnModificarFoto_Clicked"  CornerRadius="30" TextColor="#E2DCDC" Background="#B90068"/>
+
+                    <custom:CustomEntry  x:Name="txtEmail" Placeholder="Correo" BorderColor="#B90068" TextColor="#B90068" Text="" IsEnabled="False" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <custom:CustomEntry  x:Name="txtNombre" Placeholder="Nombre" BorderColor="#B90068" TextColor="#B90068" Text="" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <custom:CustomEntry  x:Name="txtApellido" Placeholder="Apellido" BorderColor="#B90068" TextColor="#B90068" Text="" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <custom:CustomEntry  x:Name="txtDocumento" Placeholder="DNI" BorderColor="#B90068" TextColor="#B90068" Text="" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+
+                    
+                    
+                    <Label  Text="Localizacion Actual" 
+                                       TextColor="#B90068" 
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="EndAndExpand" 
+                                       FontSize="15"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center" >
+
+                        <Label.GestureRecognizers >
+                            <TapGestureRecognizer  x:Name="VerUbicacionTap"
+                                              Tapped="VerUbicacionTap_Tapped"></TapGestureRecognizer>
+                            
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Button x:Name="btnGuardarCambioo" Text="Guardar Cambios" BackgroundColor="#B90068" TextColor="#E2DCDC" Clicked="BtnGuardarCambios_Clicked" CornerRadius="30"/>
+                    <Button x:Name="btnCerrarSesion" Text="Cerrar Sesión" BackgroundColor="#B90068" TextColor="#E2DCDC" Clicked="BtnCerrarSesion_Clicked" CornerRadius="30" />
+                    
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

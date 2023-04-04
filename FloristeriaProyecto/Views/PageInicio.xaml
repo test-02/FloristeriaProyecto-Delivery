@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:views="clr-namespace:FloristeriaProyecto.Views"
+                BackgroundColor="#B90068"
+       
+             x:Class="FloristeriaProyecto.Views.PageInicio">
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="#FFCBE9"
+                  HeightRequest="150">
+                <Image Aspect="AspectFit"
+                       Source="flori.png"
+                       />
+                
+                <Label Text=""
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <!--<FlyoutItem Title="Productos"
+                Icon="ramo2.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:PageExplorar}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Compra"
+                Icon="compraa.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:PageBolsa}" />
+        </Tab>
+    </FlyoutItem>-->
+
+    <FlyoutItem Title="Facturacion"
+                Icon="pagoo.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:PageCompras}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Perfil"
+                Icon="per.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:PagePerfil}" />
+        </Tab>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout>
+                <Label Text="Floristeria 2023"
+                       TextColor="#E2DCDC"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+                <Label Text="copyright © Grupo2"
+                       TextColor="#E2DCDC"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+</Shell>

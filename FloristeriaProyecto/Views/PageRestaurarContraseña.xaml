@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             BackgroundImageSource="rosa.jpg"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:FloristeriaProyecto"
+            
+             x:Class="FloristeriaProyecto.Views.PageRestaurarContraseña">
+
+    <StackLayout >
+
+
+        <Grid>
+            <StackLayout  Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+
+                <Image Source="flori.png" Aspect="AspectFill" Margin="40"/>
+            </StackLayout>
+            <StackLayout Padding="0" Margin="10,140,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="white" BorderColor="#B90068" HeightRequest="600" HasShadow="True" Padding="0" Margin="0" CornerRadius="50" >
+
+                    <StackLayout>
+                       
+
+                        <StackLayout Padding="0" Margin="25,10">
+
+                            <Label Grid.Row="0"  Text="RECUPERAR CONTRASEÑA" FontSize="24" FontAttributes="Bold" TextColor="#B90068" HorizontalOptions="CenterAndExpand"></Label>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.vexels.com/media/users/3/135118/isolated/preview/676bf0e9f3c16649cd7f426c6dcd755a-signo-de-usuario-plano-con-fondo-redondo.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    
+                                        <custom:CustomEntry  
+                                         Grid.Row="3"
+                                         x:Name="txtEmail"
+                                         CornerRadius="18"  
+                                         IsCurvedCornersEnabled="True"  
+                                         BorderColor="#B90068"      
+                                         HorizontalTextAlignment="Start"  
+                                         FontSize="15"  
+                                         HeightRequest="40"  
+                                         Placeholder="Correo"  
+                                         PlaceholderColor="#E2DCDC"  
+                                         TextColor="#B90068"  
+                                         FontAttributes="None"  
+                                         WidthRequest="100"/>   
+
+
+                                </StackLayout>
+                            </Frame>
+
+                           
+                            <Label></Label>
+                            
+                            <Button Text="Enviar"
+                                    x:Name="ButtonEnviarLink"
+                                    Clicked="ButtonEnviarLink_Clicked"
+                                    CornerRadius="30"
+                                    BackgroundColor="#B90068"
+                                    TextColor="#F5F5F5"></Button>
+
+                            
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+
+                                <Label></Label>
+                                
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0" Padding="0">
+
+                            </StackLayout>
+
+
+                            <StackLayout Margin="0,25" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+
+
+            </StackLayout>
+
+        </Grid>
+
+
+    </StackLayout>
+
+</ContentPage>
