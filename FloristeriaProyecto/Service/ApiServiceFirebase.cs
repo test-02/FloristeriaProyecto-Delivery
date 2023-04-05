@@ -21,8 +21,6 @@ namespace FloristeriaProyecto.Service
     {
         public bool IsEnabled { get; }
 
-        // private static object txtEmail;
-        //  private static object txtContrasena;
         public ApiServiceFirebase()
         {
             IsEnabled = true;
@@ -79,6 +77,7 @@ namespace FloristeriaProyecto.Service
                 HttpClient client = new HttpClient();
                 string apiurlformat = string.Concat(AppSettings.ApiFirebase, "dbalmacen/categoria.json?auth={0}");
                 var response = await client.GetAsync(string.Format(apiurlformat, AppSettings.oAuthentication.IdToken));
+
                 if (response.StatusCode.Equals(HttpStatusCode.OK))
                 {
                     var jsonstring = await response.Content.ReadAsStringAsync();
@@ -566,6 +565,39 @@ namespace FloristeriaProyecto.Service
                 return oListaCompra;
             }
         }
+
+
+        /*public static async Task<Dictionary<string, Compra>> ObtenerCompras25()
+        {
+            Dictionary<string, Compra> oObject = new Dictionary<string, Compra>();
+            try
+            {
+                HttpClient client = new HttpClient();
+                string apiformat = string.Concat(AppSettings.ApiFirebase, "compra.json?auth={0}");
+                var response = await client.GetAsync(string.Format(apiformat, AppSettings.oAuthentication.IdToken));
+
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                {
+                    var jsonstring = await response.Content.ReadAsStringAsync();
+
+                    if (jsonstring != "null")
+                    {
+                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Compra>>(jsonstring);
+                    }
+                    return oObject;
+                }
+                else
+                {
+                    return oObject;
+                }
+            }
+            catch (Exception ex)
+            {
+                string t = ex.Message;
+                return oObject;
+            }
+
+        }*/
 
 
 

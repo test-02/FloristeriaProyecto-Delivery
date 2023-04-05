@@ -9,7 +9,6 @@ namespace FloristeriaProyecto
     {
         public static string ApiFirebase = "https://floristeriamovil2-10357-default-rtdb.firebaseio.com/";
         public static string KeyAplication = "AIzaSyC6YhMrHw1E4Z2cqbRqjjGtkzmkUz_iDDA";
-        //AIzaSyB02It8JWMbOwatyJGX9CUfmCQhCZLugDE
 
 
         public static ResponseAuthentication oAuthentication { get; set; }
@@ -24,6 +23,5 @@ namespace FloristeriaProyecto
             else
                 return "";
         }
-
     }
 }

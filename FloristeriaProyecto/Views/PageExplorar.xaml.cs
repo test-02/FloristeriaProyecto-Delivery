@@ -17,6 +17,7 @@ namespace FloristeriaProyecto.Views
         public PageExplorar()
         {
             InitializeComponent();
+
             obtenerCategorias();
             CarouselViewCategorias_ItemTapped();
         }

@@ -19,10 +19,15 @@ namespace FloristeriaProyecto.Views
 
         public List<Compra> oListaCompra { get; set; }
 
+        public List<Compra> oListaCompras = new List<Compra>();
+
+
         public PageCompras()
         {
             InitializeComponent();
             ObtenerCompra();
+            //ObtenerCompra25();
+
         }
 
         protected override void OnAppearing()
@@ -43,10 +48,10 @@ namespace FloristeriaProyecto.Views
 
             if (oObjecto != null)
             {
-                /*oListaCompra = oObjecto;
-                ListViewCompra.ItemsSource = oObjecto;*/
+                oListaCompra = oObjecto;
+                ListViewCompra.ItemsSource = oObjecto;
 
-                await Application.Current.MainPage.DisplayAlert("Lista de Pedidos Llena", "Pedidos encontrados", "OK");
+                // await Application.Current.MainPage.DisplayAlert("Lista de Pedidos Llena", "Pedidos encontrados", "OK");
             }
 
             /*if (oObjecto.Count > 0)
@@ -60,6 +65,39 @@ namespace FloristeriaProyecto.Views
             }
 
         }
+
+        /*private async void ObtenerCompra25()
+        {
+            Dictionary<string, Compra> oObjeto = new Dictionary<string, Compra>();
+            oObjeto = await ApiServiceFirebase.ObtenerCompras25();
+
+            List<Compra> oListaTemp = new List<Compra>();
+
+            if (oObjeto.Count > 0)
+            {
+                foreach (KeyValuePair<string, Compra> item in oObjeto)
+                {
+                    oListaTemp.Add(new Compra()
+                    {
+                        // idcompra = item.Key,
+                        tipoEntrega = item.Value.tipoEntrega,
+                        fechaCompra = item.Value.fechaCompra,
+
+                    });
+                }
+                oListaCompra = oListaTemp;
+
+                ListViewCompra.ItemsSource = oListaCompra;
+
+                await Application.Current.MainPage.DisplayAlert("Lista de Pedidos Llena", "Pedidos encontrados", "OK");
+            }
+
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Lista de Pedidos vacía", "No se encontraron Pedidos", "OK");
+            }
+
+        }*/
 
         private void listSites_ItemTapped(object sender, ItemTappedEventArgs e)
         {
