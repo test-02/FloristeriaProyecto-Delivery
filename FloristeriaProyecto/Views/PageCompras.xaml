@@ -4,7 +4,7 @@
              xmlns:fRating="clr-namespace:Rating;assembly=Rating"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              x:Class="FloristeriaProyecto.Views.PageCompras"
-             Title="Entregas/Calificar">
+             Title="Entregas">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#A7A7A7">
             <ListView x:Name="ListViewCompra" ItemsSource="{Binding oListaCompra}" HasUnevenRows="True" IsPullToRefreshEnabled="False" ItemTapped="ListViewCompra_ItemTapped">
@@ -27,37 +27,29 @@
                                         <ColumnDefinition Width="3*"/>
                                         <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" Text="Tipo Entrega:" VerticalOptions="Start"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding tipoEntrega}" VerticalOptions="Start"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Nombre del cliente:" VerticalOptions="Start"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding oDepacho.personaContacto}" VerticalOptions="Start"/>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Text="Fecha Compra:" VerticalOptions="Start"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding fechaCompra}" VerticalOptions="Start"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Telefono:" VerticalOptions="Start"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding oDepacho.celular}" VerticalOptions="Start"/>
 
-                                    <Label Grid.Row="2" Grid.Column="0" Text="Monto Total:" VerticalOptions="Start"/>
-                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding precioTotal, StringFormat='L/.{0}'}" VerticalOptions="Start"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Departamento:" VerticalOptions="Start"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding oDepacho.departamento}" VerticalOptions="Start"/>
 
-                                    <Label Grid.Row="3" Grid.ColumnSpan="1" Text="Detalle Compra" VerticalOptions="Start"/>
+                                    <Label IsVisible="False" Grid.Row="3" Grid.ColumnSpan="1" Text="Detalle Compra" VerticalOptions="Start"/>
+
+                                    <Label IsVisible="False" Grid.Row="3" Grid.ColumnSpan="1" Text="{Binding oDepacho.longitud}" VerticalOptions="Start"/>
+                                    <Label IsVisible="False" Grid.Row="3" Grid.ColumnSpan="1" Text="{Binding oDepacho.latitud}" VerticalOptions="Start"/>
 
                                     <BoxView Grid.Row="4" Grid.ColumnSpan="3" Color="HotPink" HeightRequest="3" HorizontalOptions="Fill" />
 
                                     <Label Grid.Row="5" Grid.Column="0" Text="Nombre" VerticalOptions="Start" TextColor="#B90068"/>
                                     <Label Grid.Row="5" Grid.Column="1" Text="Monto" VerticalOptions="Start" TextColor="#B90068"/>
                                     <Label Grid.Row="5" Grid.Column="2" Text="Cantidad" VerticalOptions="Start" TextColor="#B90068"/>
-                                    
-                                    <fRating:RatingBar SelectedStarValue="0" 
-                                                       Grid.Row="3" Grid.Column="1"  
-                                                       VerticalOptions="Center" 
-                                                       x:Name="rating"                                  
-                                                       ImageWidth="20" 
-                                                       ImageHeight="20" 
-                                                       FillStarImage="EstrellaRellena"
-                                                       EmptyStarImage="EstrellaBlanca"  >
 
-                                    </fRating:RatingBar>
-                                    
 
                                     <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Margin="0" Padding="0">
-                                        <ListView x:Name="ListViewCompra" ItemsSource="{Binding oListaBolsa}" HasUnevenRows="True" IsPullToRefreshEnabled="False"  ItemTapped="listSites_ItemTapped">
+                                        <ListView x:Name="ListViewCompra" ItemsSource="{Binding oListaBolsa}" HasUnevenRows="True" IsPullToRefreshEnabled="False">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <ViewCell IsEnabled="False">
@@ -73,6 +65,7 @@
                                                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding producto.nombre}" TextColor="Black" VerticalOptions="Center" FontSize="12" />
                                                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding montoTotal, StringFormat='L/.{0}'}" TextColor="Black" VerticalOptions="End" FontSize="12" />
                                                             <Label Grid.Row="0" Grid.Column="2" Text="{Binding cantidad}"  TextColor="Black" VerticalOptions="End" FontSize="12"/>
+                                                            
                                                             
                                                         </Grid>
 

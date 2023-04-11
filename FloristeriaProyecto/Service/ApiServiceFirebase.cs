@@ -489,7 +489,6 @@ namespace FloristeriaProyecto.Service
             }
         }
 
-
         public static async Task<bool> RegistrarCompra(Compra oCompra)
         {
             try
@@ -565,42 +564,6 @@ namespace FloristeriaProyecto.Service
                 return oListaCompra;
             }
         }
-
-
-        /*public static async Task<Dictionary<string, Compra>> ObtenerCompras25()
-        {
-            Dictionary<string, Compra> oObject = new Dictionary<string, Compra>();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "compra.json?auth={0}");
-                var response = await client.GetAsync(string.Format(apiformat, AppSettings.oAuthentication.IdToken));
-
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-
-                    if (jsonstring != "null")
-                    {
-                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Compra>>(jsonstring);
-                    }
-                    return oObject;
-                }
-                else
-                {
-                    return oObject;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                return oObject;
-            }
-
-        }*/
-
-
-
 
     }
 }

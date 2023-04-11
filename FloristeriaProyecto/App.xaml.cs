@@ -17,7 +17,6 @@ namespace FloristeriaProyecto
         public App()
         {
             InitializeComponent();
-       
         }
 
         protected override void OnStart()

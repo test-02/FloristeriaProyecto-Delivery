@@ -37,7 +37,7 @@
         </Tab>
     </FlyoutItem>-->
 
-    <FlyoutItem Title="Facturacion"
+    <FlyoutItem Title="Entregas"
                 Icon="pagoo.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:PageCompras}" />

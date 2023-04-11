@@ -19,15 +19,10 @@ namespace FloristeriaProyecto.Views
 
         public List<Compra> oListaCompra { get; set; }
 
-        public List<Compra> oListaCompras = new List<Compra>();
-
-
         public PageCompras()
         {
             InitializeComponent();
             ObtenerCompra();
-            //ObtenerCompra25();
-
         }
 
         protected override void OnAppearing()
@@ -66,39 +61,6 @@ namespace FloristeriaProyecto.Views
 
         }
 
-        /*private async void ObtenerCompra25()
-        {
-            Dictionary<string, Compra> oObjeto = new Dictionary<string, Compra>();
-            oObjeto = await ApiServiceFirebase.ObtenerCompras25();
-
-            List<Compra> oListaTemp = new List<Compra>();
-
-            if (oObjeto.Count > 0)
-            {
-                foreach (KeyValuePair<string, Compra> item in oObjeto)
-                {
-                    oListaTemp.Add(new Compra()
-                    {
-                        // idcompra = item.Key,
-                        tipoEntrega = item.Value.tipoEntrega,
-                        fechaCompra = item.Value.fechaCompra,
-
-                    });
-                }
-                oListaCompra = oListaTemp;
-
-                ListViewCompra.ItemsSource = oListaCompra;
-
-                await Application.Current.MainPage.DisplayAlert("Lista de Pedidos Llena", "Pedidos encontrados", "OK");
-            }
-
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Lista de Pedidos vacía", "No se encontraron Pedidos", "OK");
-            }
-
-        }*/
-
         private void listSites_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             try
@@ -119,11 +81,21 @@ namespace FloristeriaProyecto.Views
 
         private async void ListViewCompra_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var respuesta = await Application.Current.MainPage.DisplayAlert("Confirmar", "¿Desea ir al modo Delivery?", "Sí", "No");
-            
-            if (respuesta)
+            var items = e.Item as Compra;
+
+            string result = await DisplayActionSheet("Escoga una opcion", "Cancelar", null, "Ir a la ubicacion del paquete", "Modo Delivery");
+
+            if (result == "Ir a la ubicacion del paquete")
             {
-                await Navigation.PushAsync(new Views.PageMapa());
+                await Navigation.PushAsync(new Views.PageMapaEstablecimiento());
+            }
+            else if (result == "Modo Delivery")
+            {
+                await Navigation.PushAsync(new Views.PageMapaDelivery(items.oDepacho.latitud, items.oDepacho.longitud, items.oDepacho.personaContacto, items.oDepacho.celular));
+            }
+            else if (result == "Cancelar")
+            {
+                // Nada
             }
         }
     }
