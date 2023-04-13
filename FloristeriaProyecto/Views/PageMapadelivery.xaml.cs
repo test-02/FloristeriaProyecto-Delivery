@@ -34,6 +34,7 @@ namespace FloristeriaProyecto.Views
             longitude = longitud;
 
             nombrecontacto = nombre;
+            telefono = celular;
 
         }
 

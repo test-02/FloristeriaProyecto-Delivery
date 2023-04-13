@@ -95,7 +95,7 @@
                                               Tapped="ForgotTap_Tapped"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label Grid.Row="9"  Text="copyright © Grupo2" FontSize="15" FontAttributes="Bold" TextColor="#E2DCDC" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="9"  Text="copyright © Grupo5" FontSize="15" FontAttributes="Bold" TextColor="#E2DCDC" HorizontalOptions="CenterAndExpand"></Label>
 
                 </Grid>
             </Frame>

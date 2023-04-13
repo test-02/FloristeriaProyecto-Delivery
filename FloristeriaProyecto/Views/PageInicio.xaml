@@ -45,7 +45,7 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center" />
 
-                <Label Text="copyright © Grupo2"
+                <Label Text="copyright © Grupo5"
                        TextColor="#E2DCDC"
                        FontAttributes="Bold"
                        HorizontalOptions="Center" />
