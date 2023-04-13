@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.LocalNotifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace FloristeriaProyecto.Views
         public PageInicio()
         {
             InitializeComponent();
+
+            CrossLocalNotifications.Current.Show("*Aviso*", "Tienes pedidos pendientes, Revisalos.", 0, DateTime.Now.AddSeconds(1));
         }
     }
 }

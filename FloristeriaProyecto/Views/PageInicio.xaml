@@ -13,7 +13,7 @@
                 <Image Aspect="AspectFit"
                        Source="flori.png"
                        />
-                
+
                 <Label Text=""
                        TextColor="Black"
                        FontAttributes="Bold"
@@ -22,20 +22,6 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-
-    <!--<FlyoutItem Title="Productos"
-                Icon="ramo2.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:PageExplorar}" />
-        </Tab>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Compra"
-                Icon="compraa.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:PageBolsa}" />
-        </Tab>
-    </FlyoutItem>-->
 
     <FlyoutItem Title="Entregas"
                 Icon="pagoo.png">

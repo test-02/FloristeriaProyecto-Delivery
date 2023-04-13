@@ -25,6 +25,7 @@ namespace FloristeriaProyecto.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::FloristeriaProyecto.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Plugin.Media.Resource.Attribute.alpha = global::FloristeriaProyecto.Droid.Resource.Attribute.alpha;
 			global::Plugin.Media.Resource.Attribute.coordinatorLayoutStyle = global::FloristeriaProyecto.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Plugin.Media.Resource.Attribute.font = global::FloristeriaProyecto.Droid.Resource.Attribute.font;
@@ -22512,34 +22513,37 @@ namespace FloristeriaProyecto.Droid
 			public const int perr = 2131165358;
 			
 			// aapt resource value: 0x7F0700AF
-			public const int preference_list_divider_material = 2131165359;
+			public const int plugin_lc_smallicon = 2131165359;
 			
 			// aapt resource value: 0x7F0700B0
-			public const int ramo = 2131165360;
+			public const int preference_list_divider_material = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int ramo1 = 2131165361;
+			public const int ramo = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int ramo2 = 2131165362;
+			public const int ramo1 = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int rosa = 2131165363;
+			public const int ramo2 = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int shop = 2131165364;
+			public const int rosa = 2131165364;
 			
 			// aapt resource value: 0x7F0700B5
-			public const int test_custom_background = 2131165365;
+			public const int shop = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int tooltip_frame_dark = 2131165366;
+			public const int test_custom_background = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int tooltip_frame_light = 2131165367;
+			public const int tooltip_frame_dark = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int xamarin_logo = 2131165368;
+			public const int tooltip_frame_light = 2131165368;
+			
+			// aapt resource value: 0x7F0700B9
+			public const int xamarin_logo = 2131165369;
 			
 			static Drawable()
 			{

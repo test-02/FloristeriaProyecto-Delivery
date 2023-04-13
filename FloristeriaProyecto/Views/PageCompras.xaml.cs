@@ -1,5 +1,6 @@
 ﻿using FloristeriaProyecto.Modelo;
 using FloristeriaProyecto.Service;
+using Plugin.LocalNotifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace FloristeriaProyecto.Views
         {
             var items = e.Item as Compra;
 
-            string result = await DisplayActionSheet("Escoga una opcion", "Cancelar", null, "Ir a la ubicacion del paquete", "Modo Delivery");
+            string result = await DisplayActionSheet("Escoga una opcion", "Cancelar", "Eliminar", "Ir a la ubicacion del paquete", "Modo Delivery");
 
             if (result == "Ir a la ubicacion del paquete")
             {
@@ -93,10 +94,23 @@ namespace FloristeriaProyecto.Views
             {
                 await Navigation.PushAsync(new Views.PageMapaDelivery(items.oDepacho.latitud, items.oDepacho.longitud, items.oDepacho.personaContacto, items.oDepacho.celular));
             }
-            else if (result == "Cancelar")
+            else if (result == "Eliminar")
             {
-                // Nada
+                // Crear una nueva lista sin el elemento seleccionado
+                var compras = (List<Compra>)ListViewCompra.ItemsSource;
+                var nuevasCompras = compras.Where(c => c != items).ToList();
+
+                // Asignar la nueva lista al origen de datos de la ListView
+                ListViewCompra.ItemsSource = nuevasCompras;
+
+                // Establecer la altura de la ListView en función del número de elementos restantes
+                ListViewCompra.HeightRequest = nuevasCompras.Count * ListViewCompra.RowHeight;
+
+                // Mensaje de entregado
+                Message("Aviso", "Pedido entregado con Exito");
+                CrossLocalNotifications.Current.Show("Aviso", "Pedido entregado con Exito", 1, DateTime.Now.AddSeconds(1));
             }
         }
+
     }
 }
