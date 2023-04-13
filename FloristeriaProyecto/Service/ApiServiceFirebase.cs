@@ -101,39 +101,6 @@ namespace FloristeriaProyecto.Service
 
         }
 
-        public static async Task<Dictionary<string, Producto>> ObtenerProductos(string nombreCategoria)
-        {
-            Dictionary<string, Producto> oObject = new Dictionary<string, Producto>();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiurlformat = string.Concat(AppSettings.ApiFirebase, "dbalmacen/categoria/{0}/productos.json?auth={1}");
-                var response = await client.GetAsync(string.Format(apiurlformat, nombreCategoria, AppSettings.oAuthentication.IdToken));
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-
-                    if (jsonstring != "null")
-                    {
-                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(jsonstring);
-                    }
-                    return oObject;
-                }
-                else
-                {
-                    oObject = null;
-                    return oObject;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                oObject = null;
-                return oObject;
-            }
-
-        }
-
         public static async Task<Usuario> ObtenerUsuario()
         {
             Usuario oObject = new Usuario();
@@ -194,60 +161,6 @@ namespace FloristeriaProyecto.Service
 
         }
 
-        public static async Task<bool> AgregarenBolsa(Bolsa oBolsa)
-        {
-            Usuario oObject = new Usuario();
-            try
-            {
-                HttpClient client = new HttpClient();
-                var body = JsonConvert.SerializeObject(oBolsa);
-                var content = new StringContent(body, Encoding.UTF8, "application/json");
-
-
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "bolsa/{0}.json?auth={1}");
-                var response = await client.PostAsync(string.Format(apiformat, AppSettings.oAuthentication.LocalId, AppSettings.oAuthentication.IdToken), content);
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                return false;
-            }
-
-        }
-
-        public static async Task<bool> RetirardeBolsa(string IdBolsa)
-        {
-            Usuario oObject = new Usuario();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "bolsa/{0}/{1}.json?auth={2}");
-                var response = await client.DeleteAsync(string.Format(apiformat, AppSettings.oAuthentication.LocalId, IdBolsa, AppSettings.oAuthentication.IdToken));
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                return false;
-            }
-        }
-
-
         public static async Task<bool> EliminarBolsa()
         {
             Usuario oObject = new Usuario();
@@ -270,43 +183,6 @@ namespace FloristeriaProyecto.Service
                 string t = ex.Message;
                 return false;
             }
-        }
-
-
-        public static async Task<Dictionary<string, Bolsa>> ObtenerBolsa()
-        {
-            Dictionary<string, Bolsa> oObject = new Dictionary<string, Bolsa>();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "bolsa/{0}.json?auth={1}");
-                var response = await client.GetAsync(string.Format(apiformat, AppSettings.oAuthentication.LocalId, AppSettings.oAuthentication.IdToken));
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-
-                    if (jsonstring != "null")
-                    {
-                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Bolsa>>(jsonstring);
-                    }
-                    else
-                        oObject = null;
-
-                    return oObject;
-                }
-                else
-                {
-                    oObject = null;
-                    return oObject;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                oObject = null;
-                return oObject;
-            }
-
         }
 
         public static async Task<List<Departamento>> ObtenerDepartamentos()
@@ -349,100 +225,6 @@ namespace FloristeriaProyecto.Service
                 return oListaDepartamento;
             }
         }
-
-
-        public static async Task<List<Provincia>> ObtenerProvincias(string p_nombredepartamento)
-        {
-            Dictionary<string, Provincia> oObject = new Dictionary<string, Provincia>();
-            List<Provincia> oListaProvincia = new List<Provincia>();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "ubigeo/provincia.json?auth={0}");
-                var response = await client.GetAsync(string.Format(apiformat, AppSettings.oAuthentication.IdToken));
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-
-                    if (jsonstring != "null")
-                    {
-                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Provincia>>(jsonstring);
-                        foreach (KeyValuePair<string, Provincia> item in oObject)
-                        {
-                            if (item.Value.nombredepartamento == p_nombredepartamento)
-                            {
-                                oListaProvincia.Add(new Provincia()
-                                {
-                                    nombredepartamento = item.Value.nombredepartamento,
-                                    nombreprovincia = item.Value.nombreprovincia
-                                });
-                            }
-
-                        }
-                    }
-
-                    return oListaProvincia;
-                }
-                else
-                {
-                    oListaProvincia = null;
-                    return oListaProvincia;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                oListaProvincia = null;
-                return oListaProvincia;
-            }
-        }
-
-        public static async Task<List<Distrito>> ObtenerDistrito(string p_nombreprovincia)
-        {
-            Dictionary<string, Distrito> oObject = new Dictionary<string, Distrito>();
-            List<Distrito> oListaDistrito = new List<Distrito>();
-            try
-            {
-                HttpClient client = new HttpClient();
-                string apiformat = string.Concat(AppSettings.ApiFirebase, "ubigeo/distrito.json?auth={0}");
-                var response = await client.GetAsync(string.Format(apiformat, AppSettings.oAuthentication.IdToken));
-                if (response.StatusCode.Equals(HttpStatusCode.OK))
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-
-                    if (jsonstring != "null")
-                    {
-                        oObject = JsonConvert.DeserializeObject<Dictionary<string, Distrito>>(jsonstring);
-                        foreach (KeyValuePair<string, Distrito> item in oObject)
-                        {
-                            if (item.Value.nombreprovincia == p_nombreprovincia)
-                            {
-                                oListaDistrito.Add(new Distrito()
-                                {
-                                    nombreprovincia = item.Value.nombreprovincia,
-                                    nombredistrito = item.Value.nombredistrito
-                                });
-                            }
-
-                        }
-                    }
-
-                    return oListaDistrito;
-                }
-                else
-                {
-                    oListaDistrito = null;
-                    return oListaDistrito;
-                }
-            }
-            catch (Exception ex)
-            {
-                string t = ex.Message;
-                oListaDistrito = null;
-                return oListaDistrito;
-            }
-        }
-
 
         public static async Task<List<Tienda>> ObtenerTiendas()
         {
